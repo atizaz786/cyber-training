@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import HackerImage from './hacker.png'
+import Background from './background.jpg'
+import './App.css';
+import styled from 'styled-components'
 
 const questions = [    {
     text: 'What is the primary purpose of a firewall?',
@@ -65,7 +69,9 @@ const questions = [    {
     tip: 'A security incident is a breach of security protocols or policies, such as a cyber attack or data breach. It is important for organizations to have procedures in place for responding to security incidents in order to prevent cyber attacks'   } // Add additional questions here
 ];
 
-const characters = [  { name: 'Hacker', avatar: 'hacker.png' },  { name: 'Security Expert', avatar: 'expert.png' },  { name: 'AI', avatar: 'ai.png' },]  // Add additional characters here];
+const characters = [  { name: 'Hacker', avatar: HackerImage },  { name: 'Security Expert', avatar: 'expert.png' },  { name: 'AI', avatar: 'ai.png' },]  // Add additional characters here];
+
+
 
 export const Game = () => {
   const [score, setScore] = useState(0);
@@ -78,6 +84,32 @@ export const Game = () => {
   const [timeRemaining, setTimeRemaining] = useState(200);
   const [showInstructions, setShowInstructions] = useState(true);
   const [showHelp, setShowHelp] = useState(false);
+
+  const MainDiv = styled.div`
+background-image: url("background.jpg");
+height: 100vh;
+margin: 0;
+text-align: center;
+position: relative;
+// color: #fff;
+
+`
+
+const StyledButton = styled.button`
+color: #40CBFF;
+background: #031926;
+font-weight: 600;
+border-radius: 5px;
+height: 40px;
+margin-right: 10px;
+
+&:hover {
+  color: #031926 ;
+  background: #40CBFF;
+  cursor: pointer;
+}
+
+`
 
   const currentQuestion = questions[currentQuestionIndex];
   const isLastQuestion = currentQuestionIndex === questions.length - 1;
@@ -135,25 +167,27 @@ export const Game = () => {
   }, [timeRemaining]);
 
   return (
-    <div>
+    <MainDiv>
+      <img className='img' src={Background} />
+      <div >
       <p>{error}</p>
       {showInstructions && (
-        <div>
-          <h2>Welcome to the Cyber Security Game!</h2>
-          <p>In this game, you will be asked a series of questions about cyber security. Choose the correct answer for each question to earn points.</p>
-          <p>You can also use power-ups to give you an advantage, and change characters to unlock special abilities.</p>
-          <p>Are you ready to start?</p>
-          <button onClick={() => setShowInstructions(false)}>Start Game</button>
+        <div style={{position: 'absolute', top:"45%", left:"40%", textAlign:'center', color:"#40CBFF"}} >
+          <h1 style={{margin:0}}>Welcome to the Cyber Security Awareness Game!</h1>
+          <h4>In this game, you will be asked a series of questions about cyber security. Choose the correct answer for each question to earn points.</h4>
+          <h4>You can also use power-ups to give you an advantage, and change characters to unlock special abilities.</h4>
+          <h4>Are you ready to start?</h4>
+          <StyledButton style={{height:"50px", width:"100px"}} onClick={() => setShowInstructions(false)}>Start Game</StyledButton>
         </div>
       )}
       {!showInstructions && (
-        <div>
-          <p>Time remaining: {timeRemaining} seconds</p>
-          <p>Character: {character.name}</p>
-          <img src={character.avatar} alt={character.name} />
-          <button onClick={() => setShowHelp(!showHelp)}>
+        <div style={{position: 'absolute', top:"10%", left:"40%", textAlign:'center', color:"#40CBFF"}}>
+          <h3>Time remaining: {timeRemaining} seconds</h3>
+          <h4>Character: {character.name}</h4>
+          <img src={character.avatar} alt={character.name} height='50px' width='50px' />
+          <StyledButton style={{marginLeft:"20px"}} onClick={() => setShowHelp(!showHelp)}>
             {showHelp ? 'Hide Help' : 'Show Help'}
-          </button>
+          </StyledButton>
           {showHelp && (
             <div>
               <h2>Help</h2>
@@ -162,51 +196,55 @@ export const Game = () => {
               <p>Use the Reset Game button to start a new game at any time.</p>
             </div>
           )}
-          <p>Question {currentQuestionIndex + 1}: {currentQuestion.text}</p>
-          <ul>
+          <h4>Question {currentQuestionIndex + 1}: {currentQuestion.text}</h4>
+          <ul style={{listStylePosition:"inside", alignItems:"left"}}>
             {currentQuestion.choices.map((choice, index) => (
               <li key={choice}>
-                <button
+                <StyledButton
+                style={{height: "40px", margin:"20px 0px"}}
                   disabled={submitting}
                   onClick={() => handleChoiceSelection(index)}
                 >
                   {choice}
-                </button>
+                </StyledButton>
                 {answers[currentQuestionIndex] === index && (
-                  <span>{currentQuestion.correctChoice === index ? '✅' : '❌'}</span>
+                  <span style={{}}>{currentQuestion.correctChoice === index ? '✅' : '❌'}</span>
                 )}
               </li>
             ))}
           </ul>
           {currentQuestion.tip && (
-            <p>
+            <h5>
               <em>Tip: {currentQuestion.tip}</em>
-            </p>
+            </h5>
           )}
-          <button disabled={submitting || answers[currentQuestionIndex] === undefined} onClick={handleSubmit}>
+          <StyledButton disabled={submitting || answers[currentQuestionIndex] === undefined} onClick={handleSubmit}>
             {isLastQuestion ? 'Finish' : 'Next'}
-          </button>
+          </StyledButton>
           {!isLastQuestion && (
-            <button disabled={submitting || powerUp === 'Shield'} onClick={() => setPowerUp('Shield')}>
+            <StyledButton disabled={submitting || powerUp === 'Shield'} onClick={() => setPowerUp('Shield')}>
               Activate Shield
-            </button>
+            </StyledButton>
           )}
-          <button disabled={submitting} onClick={() => setCharacter(characters[Math.floor(Math.random() * characters.length)])}>
+          <StyledButton disabled={submitting} onClick={() => setCharacter(characters[Math.floor(Math.random() * characters.length)])}>
             Change Character
-          </button>
-          <button disabled={submitting} onClick={resetGame}>
+          </StyledButton>
+          <StyledButton disabled={submitting} onClick={resetGame}>
             Reset Game
-          </button>
+          </StyledButton>
         </div>
       )}
       {timeRemaining === 0 && (
         <div>
           <h2>Time's up!</h2>
-          <p>Your final score is {score} points.</p>
-          <button onClick={resetGame}>Play Again</button>
+          <h3>Your final score is {score} points.</h3>
+          <StyledButton onClick={resetGame}>Play Again</StyledButton>
         </div>
       )}
-    </div>
+
+      </div>
+     
+    </MainDiv>
   );
 };
 
