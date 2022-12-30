@@ -242,7 +242,7 @@ margin-right: 10px;
         </div>
       )}
       <div style={{ textAlign:'center', color:"#40CBFF", background:"#052638"}}>
-      <h3 style={{margin:0, padding:"10px"}}>Copyright © 2022, Atizaz Hashmi 🧑‍💻. All Rights Reserved</h3>
+      <h3 style={{margin:0, padding:"10px"}}>Copyright © 2022, Atizaz Hashmi🧑‍💻. All Rights Reserved</h3>
         <h4 style={{margin:0, padding:"10px"}}>Made with ❤️ for Coursework of Human Factors of Cyber Security</h4>
       </div>
       {timeRemaining === 0 && (
