@@ -6,6 +6,9 @@
 
 .img {
   width: 100%;
-  height: fit-content;
-  z-index: 0;
+  height: 100%;
+  /* height: fit-content; */
+  /* object-fit: contain; */
+  /* object-position: -20% 50%; */
+  /* z-index: 0; */
 }

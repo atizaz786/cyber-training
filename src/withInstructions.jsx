@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import HackerImage from './hacker.png'
 import Background from './background.jpg'
+import TickBox from './tick.png'
+import Cancel from './cancel.png'
 import './App.css';
 import styled from 'styled-components'
 
@@ -81,14 +83,15 @@ export const Game = () => {
   const [error, setError] = useState('');
   const [character, setCharacter] = useState(characters[0]);
   const [powerUp, setPowerUp] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(200);
+  const [timeRemaining, setTimeRemaining] = useState(500);
   const [showInstructions, setShowInstructions] = useState(true);
   const [showHelp, setShowHelp] = useState(false);
 
   const MainDiv = styled.div`
-background-image: url("background.jpg");
-height: 100vh;
+  background: rgb(2,0,36);
+background: linear-gradient(211deg, rgba(2,0,36,1) 0%, rgba(36,36,113,1) 43%, rgba(5,0,83,1) 62%);
 margin: 0;
+height: 90vh;
 text-align: center;
 position: relative;
 // color: #fff;
@@ -168,11 +171,11 @@ margin-right: 10px;
 
   return (
     <MainDiv>
-      <img className='img' src={Background} />
+       <img style={{width:"100%", height:showHelp ? "fit-content": "fit-content"}} className='img' src={Background} />
       <div >
-      <p>{error}</p>
+      <h4 style={{position: 'absolute', top:"3%", left:"80%", textAlign:'center', color:error?.includes("Correct") ? "green":"red"}}>{error}</h4>
       {showInstructions && (
-        <div style={{position: 'absolute', top:"45%", left:"40%", textAlign:'center', color:"#40CBFF"}} >
+        <div style={{position: 'absolute', top:"50%", left:"40%", textAlign:'center', color:"#40CBFF"}} >
           <h1 style={{margin:0}}>Welcome to the Cyber Security Awareness Game!</h1>
           <h4>In this game, you will be asked a series of questions about cyber security. Choose the correct answer for each question to earn points.</h4>
           <h4>You can also use power-ups to give you an advantage, and change characters to unlock special abilities.</h4>
@@ -180,8 +183,8 @@ margin-right: 10px;
           <StyledButton style={{height:"50px", width:"100px"}} onClick={() => setShowInstructions(false)}>Start Game</StyledButton>
         </div>
       )}
-      {!showInstructions && (
-        <div style={{position: 'absolute', top:"10%", left:"40%", textAlign:'center', color:"#40CBFF"}}>
+      {!showInstructions && timeRemaining!=0 &&  (
+        <div style={{position: 'absolute', top:"5%", left:"40%", textAlign:'center', color:"#40CBFF"}}>
           <h3>Time remaining: {timeRemaining} seconds</h3>
           <h4>Character: {character.name}</h4>
           <img src={character.avatar} alt={character.name} height='50px' width='50px' />
@@ -199,16 +202,20 @@ margin-right: 10px;
           <h4>Question {currentQuestionIndex + 1}: {currentQuestion.text}</h4>
           <ul style={{listStylePosition:"inside", alignItems:"left"}}>
             {currentQuestion.choices.map((choice, index) => (
-              <li key={choice}>
+              <li key={choice} style={{display:"flex"}}>
                 <StyledButton
-                style={{height: "40px", margin:"20px 0px"}}
+                style={{height: "60px", margin:"20px 0px", display:"inline", alignItems:"left", fontSize:"14px"}}
                   disabled={submitting}
                   onClick={() => handleChoiceSelection(index)}
                 >
                   {choice}
                 </StyledButton>
                 {answers[currentQuestionIndex] === index && (
-                  <span style={{}}>{currentQuestion.correctChoice === index ? '✅' : '❌'}</span>
+                  <>
+                   {/* <span style={{}}>{currentQuestion.correctChoice === index ? '✅' : '❌'}</span> */}
+                  <img src={currentQuestion.correctChoice === index ? TickBox : Cancel} alt="" style={{display:"inline-block", height:"50px", width:"50px", alignItems:"right", marginTop:"15px", marginRight:"20px"}} />
+                  </>
+                 
                 )}
               </li>
             ))}
@@ -234,14 +241,17 @@ margin-right: 10px;
           </StyledButton>
         </div>
       )}
+      <div style={{ textAlign:'center', color:"#40CBFF", background:"#052638"}}>
+      <h3 style={{margin:0, padding:"10px"}}>Copyright © 2022, Atizaz Hashmi 🧑‍💻. All Rights Reserved</h3>
+        <h4 style={{margin:0, padding:"10px"}}>Made with ❤️ for Coursework of Human Factors of Cyber Security</h4>
+      </div>
       {timeRemaining === 0 && (
-        <div>
+        <div style={{position: 'absolute', top:"45%", left:"60%", textAlign:'center', color:"#40CBFF"}}>
           <h2>Time's up!</h2>
           <h3>Your final score is {score} points.</h3>
           <StyledButton onClick={resetGame}>Play Again</StyledButton>
         </div>
       )}
-
       </div>
      
     </MainDiv>
