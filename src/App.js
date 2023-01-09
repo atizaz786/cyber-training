@@ -1,17 +1,12 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-import {Game} from './withInstructions.jsx'
-import Footer from './Footer.jsx';
-import Background from './background.jpg'
+import Training from './pages/training';
 
 
 function App() {
   return (
     <>  
-   
-      <Game />
-      {/* <Footer /> */}
-      
+   <Training />      
     </>
   );
 }
