@@ -8,9 +8,10 @@ import SocialEngineeringQuiz from './socialEngineering';
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3, 2),
-    background: 'rgb(36,36,113)',
-      background: 'linear-gradient(243deg, rgba(36,36,113,1) 13%, rgba(0,0,0,1) 43%, rgba(5,0,83,1) 79%)',
-      color:"#fff"
+    background: 'rgb(7,40,63)',
+    background: 'linear-gradient(332deg, rgba(7,40,63,1) 5%, rgba(5,81,131,1) 58%, rgba(5,36,57,1) 98%)',
+      color:"#00abff",
+      height:"100vh"
   },
   title: {
     marginBottom: theme.spacing(2),
@@ -27,7 +28,7 @@ export function Introduction() {
   const classes = useStyles();
 
   return (
-    <Paper className={classes.root}>
+    <Paper elevation={0} className={classes.root}>
       <Typography variant="h4" className={classes.title}>
         Introduction to Cybersecurity
       </Typography>

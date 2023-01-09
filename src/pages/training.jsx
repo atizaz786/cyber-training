@@ -14,13 +14,14 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    background: 'rgb(36,36,113)',
-      background: 'linear-gradient(243deg, rgba(36,36,113,1) 13%, rgba(0,0,0,1) 43%, rgba(5,0,83,1) 79%)',
-      color:"#fff"
+    background: 'rgb(7,40,63)',
+    background: 'linear-gradient(332deg, rgba(7,40,63,1) 5%, rgba(5,81,131,1) 58%, rgba(5,36,57,1) 98%)',
+      color:"#00abff"
   },
   appBar: {
-    background: 'rgb(36,36,113)',
-      background: 'linear-gradient(243deg, rgba(36,36,113,1) 13%, rgba(0,0,0,1) 43%, rgba(5,0,83,1) 79%)',
+    background: 'rgb(7,40,63)',
+background: 'linear-gradient(332deg, rgba(7,40,63,1) 5%, rgba(5,81,131,1) 58%, rgba(5,36,57,1) 98%)',
+color:"#00abff",
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -46,9 +47,9 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
-    background: 'rgb(36,36,113)',
-      background: 'linear-gradient(243deg, rgba(36,36,113,1) 13%, rgba(0,0,0,1) 43%, rgba(5,0,83,1) 79%)',
-      color:"#fff"
+    background: 'rgb(7,40,63)',
+background: 'linear-gradient(332deg, rgba(7,40,63,1) 5%, rgba(5,81,131,1) 58%, rgba(5,36,57,1) 98%)',
+      color:"#00abff"
   },
   drawerHeader: {
     display: 'flex',
@@ -59,8 +60,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
   },
   content: {
-    background: 'rgb(36,36,113)',
-      background: 'linear-gradient(243deg, rgba(36,36,113,1) 13%, rgba(0,0,0,1) 43%, rgba(5,0,83,1) 79%)',
+    background: 'rgb(7,40,63)',
+    background: 'linear-gradient(332deg, rgba(7,40,63,1) 5%, rgba(5,81,131,1) 58%, rgba(5,36,57,1) 98%)',
     flexGrow: 1,
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
@@ -101,7 +102,7 @@ export default function Training() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar  position="fixed"
+      <AppBar elevation={0} position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}>
@@ -158,8 +159,8 @@ export default function Training() {
           </ListItem>
         </List>
       </Drawer>
-      <main style={{background: 'rgb(36,36,113)',
-      background: 'linear-gradient(243deg, rgba(36,36,113,1) 13%, rgba(0,0,0,1) 43%, rgba(5,0,83,1) 79%)'}}  className={clsx(classes.content, {
+      <main style={{ background: 'rgb(7,40,63)',
+background: 'linear-gradient(332deg, rgba(7,40,63,1) 5%, rgba(5,81,131,1) 58%, rgba(5,36,57,1) 98%)',}}  className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}>
         <div className={classes.drawerHeader} />
