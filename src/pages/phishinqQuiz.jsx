@@ -15,9 +15,8 @@ import {
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3, 2),
-    background: 'rgb(36,36,113)',
-      background: 'linear-gradient(243deg, rgba(36,36,113,1) 13%, rgba(0,0,0,1) 43%, rgba(5,0,83,1) 79%)',
-      color:"#fff"
+    background: 'linear-gradient(to bottom, #0077be, #00c6ff)',
+    color:"#fff",
   },
   title: {
     marginBottom: theme.spacing(2),
@@ -37,37 +36,190 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const questions = [
-    {
-      question: 'What is a phishing attack?',
-      choices: [
-        'A type of computer virus',
-        'A physical attack on a computer',
-        'An attempt to trick individuals into revealing sensitive information or installing malware',
-        'All of the above',
-      ],
-      correct: 2,
-    },
-    {
-      question: 'What are some red flags to watch out for in emails that may indicate a phishing attack?',
-      choices: [
-        'Urgent or threatening language',
-        'Suspicious attachments or links',
-        'Misspelled words or unusual formatting',
-        'All of the above',
-      ],
-      correct: 3,
-    },
-    {
-      question: 'What should you do if you receive a suspicious email?',
-      choices: [
-        'Click on any links or download any attachments',
-        'Verify the authenticity of the email by contacting the sender directly or through a trusted source',
-        'Ignore the email',
-        'All of the above',
-      ],
-      correct: 1,
-    },
-  ];
+ 
+  {
+    question: 'What is the goal of a phishing attack?',
+    choices: [
+      'To gain unauthorized access to a network',
+      'To steal personal information',
+      'To spread malware',
+      'All of the above',
+    ],
+    correct: 1,
+  },
+  {
+    question: 'What is pretexting?',
+    choices: [
+      'Creating a fake identity to gain trust',
+      'Sending emails with malicious links',
+      'Sending text messages with malicious links',
+      'All of the above',
+    ],
+    correct: 0,
+  },
+  {
+    question: 'What is vishing?',
+    choices: [
+      'A phishing attack via email',
+      'A phishing attack via phone call',
+      'A phishing attack via text message',
+      'All of the above',
+    ],
+    correct: 1,
+  },
+  {
+    question: 'What is the best way to protect against social engineering attacks?',
+    choices: [
+      'Keeping your computer updated with the latest security patches',
+      'Avoiding clicking on links or downloading attachments from unknown sources',
+      'Verifying the identity of the person before providing personal information',
+      'All of the above',
+    ],
+    correct: 3,
+  },
+  {
+    question: 'What is a spear phishing attack?',
+    choices: [
+      'A phishing attack targeting a specific individual or organization',
+      'A phishing attack targeting a large group of people',
+      'A phishing attack targeting a specific type of person',
+      'All of the above',
+    ],
+    correct: 0,
+  },
+  {
+    question: 'What is a whaling attack?',
+    choices: [
+      'A spear phishing attack targeting a high-level executive',
+      'A phishing attack targeting a specific type of person',
+      'A phishing attack targeting a specific individual or organization',
+      'All of the above',
+    ],
+    correct: 0,
+  },
+  {
+    question: 'What is a phishing attack?',
+    choices: [
+      'A type of computer virus',
+      'A physical attack on a computer',
+      'An attempt to trick individuals into revealing sensitive information or installing malware',
+      'All of the above',
+    ],
+    correct: 2,
+  },
+  {
+    question: 'What are some red flags to watch out for in emails that may indicate a phishing attack?',
+    choices: [
+      'Urgent or threatening language',
+      'Suspicious attachments or links',
+      'Misspelled words or unusual formatting',
+      'All of the above',
+    ],
+    correct: 3,
+  },
+  {
+    question: 'What should you do if you receive a suspicious email?',
+    choices: [
+      'Click on any links or download any attachments',
+      'Verify the authenticity of the email by contacting the sender directly or through a trusted source',
+      'Ignore the email',
+      'All of the above',
+    ],
+    correct: 1,
+  },
+  {
+    question: 'What is the difference between a phishing attack and a spoofing attack?',
+    choices: [
+      'A phishing attack tries to steal personal information, a spoofing attack tries to gain unauthorized access to a network',
+      'A phishing attack uses email, a spoofing attack uses phone calls',
+      'A phishing attack uses a fake website, a spoofing attack uses a fake email address',
+      'None of the above'
+    ],
+    correct: 0,
+  },
+{
+question: 'What is the name of the process of creating a fake identity to gain trust?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 2,
+},
+{
+question: 'What is the name of the process of using scare tactics to trick someone into providing personal information?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 3,
+},
+{
+question: 'What is the name of the process of tricking someone into providing personal information by pretending to be a trustworthy entity?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 0,
+},
+{
+question: 'What is the name of the process of tricking someone into downloading malware or giving away personal information by using a fake software update?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 3,
+},
+{
+question: 'What is the name of the process of tricking someone into providing personal information by using a fake sense of urgency?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 3,
+},
+{
+question: 'What is the name of the process of tricking someone into providing personal information by using a fake sense of authority?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 3,
+},
+{
+question: 'What is the name of the process of tricking someone into providing personal information by using a fake sense of scarcity?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 3,
+},
+{
+question: 'What is the name of the process of tricking someone into providing personal information by using a fake sense of popularity?',
+choices: [
+  'Phishing',
+  'Spear phishing',
+  'Pretexting',
+  'Scareware'
+],
+correct: 3,
+},
+];
+
+
   
   function PhishingQuiz() {
     const classes = useStyles();
@@ -124,8 +276,12 @@ const questions = [
               <Typography variant="h4" className={classes.title}>
                 Phishing Quiz
               </Typography>
+              <Typography>
+                There are total {questions?.length} questions
+              </Typography>
+              <br />
               <Typography variant="body1" className={classes.title}>
-                {current.question}
+              Q.{currentQuestion+1}  {current.question}
               </Typography>
               <form onSubmit={handleSubmit}>
                 <FormControl component="fieldset" className={classes.formControl}>

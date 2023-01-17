@@ -56,7 +56,7 @@ function PasswordTester() {
         onChange={handleChange}
         fullWidth
       />
-      <Button type="submit" variant="contained" color="primary" className={classes.button}>
+      <Button type="submit" variant="outlined" color="primary" className={classes.button}>
         Check Strength
       </Button>
       {result && (
